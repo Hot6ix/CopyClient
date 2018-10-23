@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">CopyClient</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_turn_onoff">연결하기</string>
+
+    <string name="pref_title_on_boot">부팅 시 연결</string>
+    <string name="pref_desc_on_boot">부팅 시 자동으로 서버와 연결 시도</string>
+
+    <string name="pref_title_regex">필터</string>
+    <string name="pref_title_ip">IP</string>
+    <string name="pref_title_port">Port</string>
+    <string name="pref_title_github">정보</string>
+
+    <string name="pref_title_password">비밀번호</string>
+    <string name="pref_desc_password">비밀번호를 설정한 경우 입력</string>
+
+    <string name="default_regex">\\\\d+</string>
+    <string name="default_ip">서버 IP를 입력해주세요</string>
+    <string name="default_port">31331</string>
+
+</resources>

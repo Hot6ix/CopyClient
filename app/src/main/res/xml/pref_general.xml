@@ -1,0 +1,66 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="key_service"
+        android:title="@string/pref_title_turn_onoff" />
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="key_onboot"
+        android:summary="@string/pref_desc_on_boot"
+        android:title="@string/pref_title_on_boot" />
+
+    <EditTextPreference
+        android:capitalize="none"
+        android:defaultValue="@string/default_regex"
+        android:inputType="text"
+        android:key="key_regex"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_regex" />
+
+    <EditTextPreference
+        android:capitalize="none"
+        android:inputType="text"
+        android:defaultValue="@string/default_ip"
+        android:key="key_ip"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_ip" />
+
+    <EditTextPreference
+        android:capitalize="none"
+        android:inputType="number"
+        android:defaultValue="@string/default_port"
+        android:key="key_port"
+        android:maxLines="1"
+        android:maxLength="5"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_port" />
+
+    <EditTextPreference
+        android:capitalize="none"
+        android:inputType="textPassword"
+        android:key="key_password"
+        android:maxLines="1"
+        android:maxLength="5"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_password"
+        android:summary="@string/pref_desc_password"/>
+
+    <Preference
+        android:key="@string/setting_source_key"
+        android:title="@string/setting_source_title">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://github.com/Hot6ix/WorldTimeAlarm"/>
+
+    </Preference>
+
+</PreferenceScreen>
