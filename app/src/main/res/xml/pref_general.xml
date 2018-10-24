@@ -54,12 +54,11 @@
         android:summary="@string/pref_desc_password"/>
 
     <Preference
-        android:key="@string/setting_source_key"
-        android:title="@string/setting_source_title">
+        android:title="@string/pref_title_github">
 
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="https://github.com/Hot6ix/WorldTimeAlarm"/>
+            android:data="https://github.com/Hot6ix/CopyClient"/>
 
     </Preference>
 

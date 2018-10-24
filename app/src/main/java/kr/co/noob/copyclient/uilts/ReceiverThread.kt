@@ -12,7 +12,6 @@ class ReceiverThread(private var socket: Socket): Thread() {
 
     private var messageListener: MessageListener? = null
 
-
     override fun start() {
         super.start()
 
@@ -32,8 +31,6 @@ class ReceiverThread(private var socket: Socket): Thread() {
             reader.close()
         } catch (e: IOException) {
             e.printStackTrace()
-        } finally {
-            messageListener?.onMessageReceived(Message.EOC)
         }
 
     }
@@ -42,13 +39,8 @@ class ReceiverThread(private var socket: Socket): Thread() {
         this.messageListener = listener
     }
 
-    interface ThreadListener {
-        public fun onThreadStart(id: Long)
-        public fun onThreadEnd(id: Long)
-    }
-
     interface MessageListener {
-        public fun onMessageReceived(msg: Message)
+        fun onMessageReceived(msg: Message)
     }
 
 }

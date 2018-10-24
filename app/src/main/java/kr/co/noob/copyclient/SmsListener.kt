@@ -1,20 +1,19 @@
 package kr.co.noob.copyclient
 
-import android.app.Notification
 import android.app.Service
-import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.SharedPreferences
-import android.net.Uri
-import android.os.*
+import android.os.Build
+import android.os.IBinder
 import android.preference.PreferenceManager
-import android.provider.Settings
 import android.util.Log
-import android.widget.Toast
 import kr.co.noob.copyclient.data.Message
 import kr.co.noob.copyclient.data.SMSMessage
-import kr.co.noob.copyclient.uilts.*
+import kr.co.noob.copyclient.uilts.BroadcastReceiver
+import kr.co.noob.copyclient.uilts.MessageSender
+import kr.co.noob.copyclient.uilts.NotificationManager
+import kr.co.noob.copyclient.uilts.ReceiverThread
 import java.io.IOException
 import java.net.InetSocketAddress
 import java.net.Socket
@@ -62,7 +61,7 @@ class SmsListener : Service(), ReceiverThread.MessageListener,
         Thread {
             try {
                 socket = Socket()
-                socket!!.connect(InetSocketAddress(serverIp, serverPort!!.toInt()), 3000)
+                socket!!.connect(InetSocketAddress(serverIp, serverPort!!.toInt()), 10000)
                 isConnected = true
 
                 val receiver =  ReceiverThread(socket!!)
