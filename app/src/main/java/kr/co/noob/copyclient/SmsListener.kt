@@ -96,7 +96,7 @@ class SmsListener : Service(), ReceiverThread.MessageListener,
         when(msg) {
             Message.EOC -> {
                 // Thread loop will be finished
-                notificationManager.showNotification(notificationManager.getNotification("서버에 의해 연결이 해제되었습니다.", false, false))
+                notificationManager.showNotification(notificationManager.getNotification("서버와 연결이 해제되었습니다.", false, false))
 
                 if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) stopForeground(Service.STOP_FOREGROUND_DETACH)
                 else stopForeground(false)
@@ -123,6 +123,9 @@ class SmsListener : Service(), ReceiverThread.MessageListener,
             }
             Message.CONNECTED -> {
                 // Connection made
+            }
+            Message.EMPTY -> {
+                // Server ask client alive
             }
             else -> {
                 // Unknown message
