@@ -20,7 +20,7 @@ class ReceiverThread(private var socket: Socket): Thread() {
 
             while(true) {
                 val msg = reader.readLine()
-                val result: Message = if(msg.isNullOrEmpty()) Message.EOC else Message.valueOf(msg)
+                val result = if(msg.isNullOrEmpty()) Message.EOC else Message.valueOf(msg)
 
                 messageListener?.onMessageReceived(result)
                 if(result == Message.EOC || result == Message.REJ) {
@@ -30,6 +30,7 @@ class ReceiverThread(private var socket: Socket): Thread() {
 
             reader.close()
         } catch (e: IOException) {
+            messageListener?.onMessageReceived(Message.EOC)
             e.printStackTrace()
         }
 
