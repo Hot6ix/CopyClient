@@ -67,12 +67,7 @@ class SettingsActivity : AppCompatPreferenceActivity() {
             val permission = ContextCompat.checkSelfPermission(activity.applicationContext, android.Manifest.permission.RECEIVE_SMS)
             if(permission == PackageManager.PERMISSION_DENIED) {
                 // Permission not granted
-                if(ActivityCompat.shouldShowRequestPermissionRationale(activity, android.Manifest.permission.RECEIVE_SMS)) {
-
-                }
-                else {
-                    ActivityCompat.requestPermissions(activity, Array(1){ android.Manifest.permission.RECEIVE_SMS }, REQUEST_CODE)
-                }
+                ActivityCompat.requestPermissions(activity, Array(1){ android.Manifest.permission.RECEIVE_SMS }, REQUEST_CODE)
             }
 
             // Bind the summaries of EditText/List/Dialog/Ringtone preferences
@@ -117,15 +112,13 @@ class SettingsActivity : AppCompatPreferenceActivity() {
             super.onDestroy()
             activity.applicationContext.unregisterReceiver(serviceStatusListener)
         }
+    }
 
-        override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-            if(requestCode == REQUEST_CODE) {
-                if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(activity.applicationContext, "Permission granted", Toast.LENGTH_SHORT).show()
-                }
-                else {
-                    Toast.makeText(activity.applicationContext, "Permission denied", Toast.LENGTH_SHORT).show()
-                }
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        if(requestCode == REQUEST_CODE) {
+            if(grantResults.isEmpty() || grantResults[0] == PackageManager.PERMISSION_DENIED) {
+                Toast.makeText(applicationContext, "메세지를 읽기 위해 권한을 허가해주세요.", Toast.LENGTH_SHORT).show()
+                finish()
             }
         }
     }
