@@ -5,6 +5,9 @@
 이 앱은 서버 프로그램과 함께 사용해야 합니다.  
 서버 프로그램 다운로드 : https://github.com/Hot6ix/CopyServer
 
+CopyClient.apk  
+SHA1 : 694991504589447a2e250025cca4f76da62f59b6
+
 - 주의 사항
   - 연결 전 Server가 실행되어 있어야 합니다.
   - 서버와 앱 같은 네트워크(Wi-Fi)에 연결한 뒤 사용해야 합니다.
